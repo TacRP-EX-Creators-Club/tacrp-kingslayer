@@ -12,7 +12,7 @@ SWEP.Category = "Tactical RP (Bonus)"
 SWEP.SubCatTier = "0Exotic"
 SWEP.SubCatType = "7Sniper Rifle"
 
-SWEP.Description = "Customized Hécate with a mammoth suppressor, custom 12x scope jury-rigged with a rangefinder and a rebellious message scrawled on the gun's side."
+SWEP.Description = "Customized Hécate with a mammoth suppressor, custom 16x scope jury-rigged with a rangefinder and a rebellious message scrawled on the gun's side."
 SWEP.Description_Quote = "\"Pay a man enough and he'll walk barefoot into Hell.\""
 
 SWEP.Trivia_Caliber = ".50 BMG"
@@ -43,8 +43,8 @@ SWEP.BalanceStats = {
         AimDownSightsTime = 0.74,
         SprintToFireTime = 0.76,
         HipFireSpreadPenalty = 0.06,
-        ShootTimeMult = 1.35,
-        RPM = 25,
+        ShootTimeMult = 1.275,
+        RPM = 28,
         ReloadTimeMult = 1.4,
     },
     [TacRP.BALANCE_TTT] = { // this is a buyable weapon in TTT
@@ -184,7 +184,7 @@ SWEP.HolsterAng = Angle(0, 0, 0)
 
 SWEP.Scope = true
 SWEP.ScopeOverlay = Material("tacrp/scopes/bocw_optic_pellington_reticle_kingslayer.png", "mips") // Material("path/to/overlay")
-SWEP.ScopeFOV = 90 / 12
+SWEP.ScopeFOV = 90 / 16
 SWEP.ScopeLevels = 1 // 2 = like CS:S
 SWEP.ScopeHideWeapon = true
 SWEP.ScopeOverlaySize = 1.15
