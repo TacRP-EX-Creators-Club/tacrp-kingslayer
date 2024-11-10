@@ -363,6 +363,7 @@ local ccip_v = 0
 local dropalpha = 0
 local dropalpha2 = 0
 local frac = 0
+local shadow = Color(0, 0, 0, 200)
 
 function SWEP.ScopeDraw(self)
     local txt = "NO RTN"
@@ -381,11 +382,11 @@ function SWEP.ScopeDraw(self)
         rawdist = (tr.HitPos - tr.StartPos):Length()
         local dist
         if TacRP.ConVars["metricunit"]:GetBool() then
-            dist = math.min(math.Round(rawdist * TacRP.HUToM, 0), 99999)
-            txt = tostring(dist) .. "m"
+            dist = math.min(math.Round(rawdist * TacRP.HUToM, 0), 9999)
+            txt = string.format("%04dm", dist)
         else
             dist = math.min(math.Round(rawdist, 0), 99999)
-            txt = tostring(dist) --.. "HU"
+            txt = string.format("%05d", dist)
         end
 
         txt2 = ccip_t and (tostring(math.Round(ccip_t, 2)) .. "s") or ""
@@ -414,10 +415,10 @@ function SWEP.ScopeDraw(self)
     local txt_w, txt_h = surface.GetTextSize(txt)
 
     surface.SetTextColor(0, 0, 0, 200)
-    surface.SetTextPos(x - txt_w / 2 + 2, y - txt_h / 2 - TacRP.SS(61) + 2)
+    surface.SetTextPos(x - txt_w / 2 + 4, y - txt_h / 2 - TacRP.SS(61) + 2)
     surface.DrawText(txt)
     surface.SetTextColor(255, 255, 255)
-    surface.SetTextPos(x - txt_w / 2, y - txt_h / 2 - TacRP.SS(61))
+    surface.SetTextPos(x - txt_w / 2 + 2, y - txt_h / 2 - TacRP.SS(61))
     surface.DrawText(txt)
 
     if self:GetNextPrimaryFire() - 0.5 > CurTime() then
@@ -436,10 +437,9 @@ function SWEP.ScopeDraw(self)
     frac = math.Clamp((rawdist - self:GetValue("Range_Min")) / (self:GetValue("Range_Max") - self:GetValue("Range_Min")), 0, 1)
     if self:GetValue("Damage_Min") <= self:GetValue("Damage_Max") then frac = 1 - frac end
 
-    -- surface.DrawCircle(x, y, 16, 255, 255, 255, dropalpha * 80)
-    surface.SetDrawColor(255, 255, 255, dropalpha * 150)
-    surface.SetFont("DermaDefault")
-    -- draw.SimpleText(math.Round(frac * 100) .. "%", "DermaDefault", x, y - 16, surface.GetDrawColor(), TEXT_ALIGN_CENTER, TEXT_ALIGN_BOTTOM)
+    local pct = string.format("%03d%%", math.Round(frac * 100))
+    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x + 1, y - TacRP.SS(50) + 1, shadow, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x, y - TacRP.SS(50), color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 
     if !TacRP.ConVars["physbullet"]:GetBool() then return end
 
