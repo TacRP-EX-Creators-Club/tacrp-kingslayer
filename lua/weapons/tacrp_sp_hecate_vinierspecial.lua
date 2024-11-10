@@ -12,7 +12,7 @@ SWEP.Category = "Tactical RP (Bonus)"
 SWEP.SubCatTier = "0Exotic"
 SWEP.SubCatType = "7Sniper Rifle"
 
-SWEP.Description = "Hecate with a mammoth suppressor, custom scope with a jury-rigged rangefinder and a rebellious message scrawled on its side."
+SWEP.Description = "Customized Hécate with a mammoth suppressor, custom 12x scope jury-rigged with a rangefinder and a rebellious message scrawled on the gun's side."
 SWEP.Description_Quote = "\"Pay a man enough and he'll walk barefoot into Hell.\""
 
 SWEP.Trivia_Caliber = ".50 BMG"
@@ -39,6 +39,13 @@ SWEP.BalanceStats = {
         Damage_Min = 150,
         Range_Min = 700,
         Range_Max = 5000,
+
+        AimDownSightsTime = 0.74,
+        SprintToFireTime = 0.76,
+        HipFireSpreadPenalty = 0.06,
+        ShootTimeMult = 1.35,
+        RPM = 25,
+        ReloadTimeMult = 1.4,
     },
     [TacRP.BALANCE_TTT] = { // this is a buyable weapon in TTT
         Damage_Max = 80,
@@ -59,23 +66,14 @@ SWEP.BalanceStats = {
             [HITGROUP_RIGHTLEG] = 0.5,
             [HITGROUP_GEAR] = 0.5
         },
-    },
-    [TacRP.BALANCE_PVE] = {
-        Damage_Max = 90,
-        Damage_Min = 75,
-        Range_Min = 4000,
-        Range_Max = 8000,
-    },
-    [TacRP.BALANCE_OLDSCHOOL] = {
-        HipFireSpreadPenalty = 0.025,
     }
 }
 
 // "ballistics"
 
-SWEP.Damage_Max = 175 // damage at minimum range
-SWEP.Damage_Min = 130 // damage at maximum range
-SWEP.Range_Min = 1500 // distance for which to maintain maximum damage
+SWEP.Damage_Max = 200 // damage at minimum range
+SWEP.Damage_Min = 150 // damage at maximum range
+SWEP.Range_Min = 2000 // distance for which to maintain maximum damage
 SWEP.Range_Max = 9000 // distance at which we drop to minimum damage
 SWEP.Penetration = 40 // units of metal this weapon can penetrate
 SWEP.ArmorPenetration = 1.5
@@ -92,9 +90,9 @@ SWEP.BodyDamageMultipliers = {
     [HITGROUP_GEAR] = 0.5
 }
 
-SWEP.MuzzleVelocity = 20000
+SWEP.MuzzleVelocity = 24000
 
-SWEP.ShootTimeMult = 1.35
+SWEP.ShootTimeMult = 1.25
 
 // misc. shooting
 
@@ -102,11 +100,11 @@ SWEP.Firemode = 1
 
 SWEP.FiremodeName = "Bolt-Action" // only used externally for firemode name distinction
 
-SWEP.RPM = 25
+SWEP.RPM = 30
 
 SWEP.Spread = 0
 
-SWEP.HipFireSpreadPenalty = 0.06
+SWEP.HipFireSpreadPenalty = 0.045
 SWEP.PeekPenaltyFraction = 0.2
 
 SWEP.RecoilPerShot = 1
@@ -135,8 +133,8 @@ SWEP.ReloadSpeedMult = 0.3
 SWEP.AimDownSightsTime = 0.7
 SWEP.SprintToFireTime = 0.7
 
-SWEP.Sway = 2.5
-SWEP.ScopedSway = 0.2
+SWEP.Sway = 2
+SWEP.ScopedSway = 0.15
 
 SWEP.FreeAimMaxAngle = 9
 
@@ -185,7 +183,7 @@ SWEP.HolsterAng = Angle(0, 0, 0)
 // scope
 
 SWEP.Scope = true
-SWEP.ScopeOverlay = Material("tacrp/scopes/bocw_pellington.png", "mips smooth") // Material("path/to/overlay")
+SWEP.ScopeOverlay = Material("tacrp/scopes/bocw_pellington.png", "mips") // Material("path/to/overlay")
 SWEP.ScopeFOV = 90 / 12
 SWEP.ScopeLevels = 1 // 2 = like CS:S
 SWEP.ScopeHideWeapon = true
@@ -198,7 +196,7 @@ SWEP.Ammo = "357"
 SWEP.AmmoTTT = "ti_sniper"
 SWEP.Ammo_Expanded = "ti_sniper"
 
-SWEP.ReloadTimeMult = 1.4
+SWEP.ReloadTimeMult = 1.25
 SWEP.DropMagazineImpact = "metal"
 SWEP.DropMagazineModel = "models/weapons/tacint/magazines/uratio.mdl"
 
@@ -206,8 +204,6 @@ SWEP.ReloadUpInTime = 1.75
 SWEP.DropMagazineTime = 0.8
 
 // sounds
-
-local path = "tacrp_extras/hecate/ax308_"
 
 SWEP.Sound_Shoot = "^tacrp_extras/hecate/ax308_fire_1.wav"
 SWEP.Sound_Shoot_Silenced = "tacint_shark/hecate_vinierspecial/hecate_vinierspecial-1.wav"
@@ -351,63 +347,34 @@ SWEP.Attachments = {
     },
 }
 
-local function addsound(name, spath)
-    sound.Add({
-        name = name,
-        channel = 16,
-        volume = 1.0,
-        sound = spath
-    })
-end
+// Custom rangefinder stuff
 
-addsound("tacint_extras_hecate.Clip_Out", path .. "magout.wav")
-addsound("tacint_extras_hecate.Clip_In", path .. "magin.wav")
-addsound("tacint_extras_hecate.Bolt_Back", path .. "boltrelease.wav")
-addsound("tacint_extras_hecate.bolt_forward", path .. "boltback.wav")
-addsound("tacint_extras_hecate.Bolt_Up", path .. "boltup.wav")
-addsound("tacint_extras_hecate.bolt_down", path .. "boltdown.wav")
+SWEP.RangefinderIntegral = false
 
-if engine.ActiveGamemode() == "terrortown" then
-    SWEP.AutoSpawnable = false
-    SWEP.Kind = WEAPON_HEAVY
-    SWEP.CanBuy = { ROLE_TRAITOR, ROLE_DETECTIVE }
-    SWEP.EquipMenuData = {
-        type = "Weapon",
-        desc = "Heavy bolt-action anti-materiel rifle.\nComes with 10 rounds.\n\nBEWARE: May be visible while holstered!",
-    }
-
-    function SWEP:TTTBought(buyer)
-        buyer:GiveAmmo(3, "ti_sniper")
-    end
-end
-
-
---Custom rangefinder stuff
-
-SWEP.RangefinderIntegral = true
-
-local last_laze_time = 0
-local laze_interval = 0.2
-local ccip_v = 0
 local ccip_t = 0
-local ccip_visible = false
-local dropalpha = 0
-local dropalpha2 = 0
-
+local cached_txt
+local cached_txt2
 local lastrangefinder = 0
 local rftime = 1 / 10
 local rawdist = 0
-function SWEP.TacticalDraw(self)
+local last_laze_time = 0
+local laze_interval = 0.2
+local ccip_v = 0
+local dropalpha = 0
+local dropalpha2 = 0
+local frac = 0
+
+function SWEP.ScopeDraw(self)
     local txt = "NO RTN"
     local txt2 = ""
 
-    if !self:IsInScope() or self:GetReloading() then return end
+    if !self:IsInScope() or self:GetReloading() or self.Attachments[1].Installed then return end
 
     if lastrangefinder + rftime < CurTime() then
         local tr = util.TraceLine({
             start = self:GetMuzzleOrigin(),
             endpos = self:GetMuzzleOrigin() + (self:GetShootDir():Forward() * 50000),
-            mask = MASK_SHOT,
+            mask = MASK_OPAQUE_AND_NPCS,
             filter = self:GetOwner()
         })
 
@@ -418,7 +385,7 @@ function SWEP.TacticalDraw(self)
             txt = tostring(dist) .. "m"
         else
             dist = math.min(math.Round(rawdist, 0), 99999)
-            txt = tostring(dist) .. "HU"
+            txt = tostring(dist) --.. "HU"
         end
 
         txt2 = ccip_t and (tostring(math.Round(ccip_t, 2)) .. "s") or ""
@@ -434,90 +401,84 @@ function SWEP.TacticalDraw(self)
         txt2 = cached_txt2
     end
 
-    local scrw = ScrW()
-    local scrh = ScrH()
+    local pos = self:GetOwner():EyePos()
+    pos = pos + self:GetShootDir():Forward() * 9000
 
-    local w = TacRP.SS(100)
-    local h = TacRP.SS(50)
+    local toscreen = pos:ToScreen()
 
-    local x = (scrw - w) * 0.4
-    local y = (scrh - h) * 0.4
+    local x = toscreen.x
+    local y = toscreen.y
 
     surface.SetFont("TacRP_HD44780A00_5x8_10")
 
+    local txt_w, txt_h = surface.GetTextSize(txt)
+
     surface.SetTextColor(0, 0, 0, 200)
-    surface.SetTextPos(x + TacRP.SS(130) + 2, y + TacRP.SS(70) + 2)
+    surface.SetTextPos(x - txt_w / 2 + 2, y - txt_h / 2 - TacRP.SS(61) + 2)
     surface.DrawText(txt)
-    surface.SetTextPos(x + TacRP.SS(130) + 2, y + TacRP.SS(85) + 2)
-    surface.DrawText(txt2)
-
     surface.SetTextColor(255, 255, 255)
-    surface.SetTextPos(x + TacRP.SS(130), y + TacRP.SS(70))
+    surface.SetTextPos(x - txt_w / 2, y - txt_h / 2 - TacRP.SS(61))
     surface.DrawText(txt)
-    surface.SetTextPos(x + TacRP.SS(130), y + TacRP.SS(85))
-    surface.DrawText(txt2)
 
+    if self:GetNextPrimaryFire() - 0.5 > CurTime() then
+        dropalpha2 = 0
+    end
+
+    if self:IsInScope() and (self:GetValue("ScopeOverlay") or !self:GetReloading()) then
+        dropalpha = math.Approach(dropalpha, self:GetSightAmount() ^ 2, FrameTime() * 2)
+        dropalpha2 = math.Approach(dropalpha2, dropalpha, FrameTime() * 1)
+    else
+        dropalpha = math.Approach(dropalpha, 0, FrameTime() * 10)
+        dropalpha2 = dropalpha
+    end
+    if dropalpha == 0 then return end
+
+    frac = math.Clamp((rawdist - self:GetValue("Range_Min")) / (self:GetValue("Range_Max") - self:GetValue("Range_Min")), 0, 1)
+    if self:GetValue("Damage_Min") <= self:GetValue("Damage_Max") then frac = 1 - frac end
+
+    -- surface.DrawCircle(x, y, 16, 255, 255, 255, dropalpha * 80)
+    surface.SetDrawColor(255, 255, 255, dropalpha * 150)
+    surface.SetFont("DermaDefault")
+    -- draw.SimpleText(math.Round(frac * 100) .. "%", "DermaDefault", x, y - 16, surface.GetDrawColor(), TEXT_ALIGN_CENTER, TEXT_ALIGN_BOTTOM)
+
+    if !TacRP.ConVars["physbullet"]:GetBool() then return end
+
+    if last_laze_time + laze_interval <= CurTime() then
+        last_laze_time = CurTime()
+        local ccip = self:GetCCIP()
+
+        if !ccip then
+            ccip_v = 0
+        else
+            cam.Start3D(nil, nil, self.ViewModelFOV)
+            ccip_v = (ccip.HitPos:ToScreen().y - (ScrH() / 2)) * self:GetCorVal()
+            cam.End3D()
+        end
+    end
+
+    for i = 1, math.Round((ccip_v - 4) / 4) do
+        surface.DrawCircle(x, y + i * 4, 1, 255, 255, 255, dropalpha2 * 75)
+    end
+
+    local s = 8
+
+    surface.SetDrawColor(255, 255, 255, dropalpha2 * 255)
+    surface.DrawLine(x - s, y - s + ccip_v, x + s, y + s + ccip_v)
+    surface.DrawLine(x - s, y + s + ccip_v, x + s, y - s + ccip_v)
 end
 
--- function SWEP.TacticalCrosshair(self, x, y, spread, sway)
+ATT.TacticalCrosshairTruePos = true
 
-    -- if self:IsInScope() and (self:GetValue("ScopeOverlay") or !self:GetReloading()) then
-        -- dropalpha = math.Approach(dropalpha, self:GetSightAmount() ^ 2, FrameTime() * 1)
-        -- dropalpha2 = math.Approach(dropalpha2, dropalpha, FrameTime() * 1)
-    -- else
-        -- dropalpha = math.Approach(dropalpha, 0, FrameTime() * 10)
-        -- dropalpha2 = dropalpha
-    -- end
-    -- if dropalpha == 0 then return end
 
-    -- if last_laze_time + laze_interval <= CurTime() then
-        -- last_laze_time = CurTime()
-        -- local ccip, t, steps = self:GetCCIP()
-        -- ccip_t = t
+if engine.ActiveGamemode() == "terrortown" then
+    SWEP.AutoSpawnable = false
+    SWEP.Kind = WEAPON_HEAVY
+    SWEP.CanBuy = { ROLE_TRAITOR, ROLE_DETECTIVE }
+    SWEP.EquipMenuData = {
+        type = "Weapon",
+        desc = "Suppressed bolt-action anti-materiel rifle.\n\nBEWARE: May be visible while holstered!",
+    }
 
-        -- if !ccip then
-            -- ccip_v = 0
-        -- else
-            -- ccip_visible = 1
-            -- for i, v in ipairs(steps) do
-                -- local tr_vis = util.TraceLine({
-                    -- start = self:GetMuzzleOrigin(),
-                    -- endpos = v,
-                    -- filter = self:GetOwner(),
-                    -- mask = MASK_VISIBLE,
-                -- })
-                -- if tr_vis.Fraction < 0.99 then
-                    -- ccip_visible = i / #steps
-                -- else
-                    -- break
-                -- end
-            -- end
-
-            -- local fov = LocalPlayer():GetFOV()
-            -- local true_hitpos = TacRP.FormatViewModelAttachment(fov, ccip.HitPos, false)
-
-            -- cam.Start3D()
-                -- local hit = true_hitpos:ToScreen()
-            -- cam.End3D()
-            -- ccip_v = hit.y - y
-        -- end
-    -- end
-
-    -- local dots = math.Round((ccip_v - 4) / 4)
-    -- for i = 1, dots do
-        -- if ccip_visible < 1 and i / dots > 1 - ccip_visible then
-            -- surface.DrawCircle(x, y + i * 4, 1, 150, 150, 150, dropalpha2 * 50)
-        -- else
-            -- surface.DrawCircle(x, y + i * 4, 1, 255, 255, 255, dropalpha2 * 75)
-        -- end
-    -- end
-    -- if ccip_visible == 1 then
-        -- surface.SetDrawColor(255, 255, 255, dropalpha2 * 150)
-        -- surface.DrawLine(x - 7, y - 7 + ccip_v, x + 7, y + 7 + ccip_v)
-        -- surface.DrawLine(x - 7, y + 7 + ccip_v, x + 7, y - 7 + ccip_v)
-    -- else
-        -- surface.DrawCircle(x, y + ccip_v, 16, 150, 150, 150, dropalpha2 * 75)
-        -- surface.DrawCircle(x, y + ccip_v, 16 + 2, 150, 150, 150, dropalpha2 * 75)
-    -- end
--- end
--- SWEP.TacticalCrosshairTruePos = true
+    function SWEP:TTTBought(buyer)
+    end
+end
