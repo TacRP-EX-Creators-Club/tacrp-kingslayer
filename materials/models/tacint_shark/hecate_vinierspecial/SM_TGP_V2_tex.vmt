@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/tacint_shark/hecate_vinierspecial/suppressor/SM_TGP_V2_tex"
+	"$bumpmap" "models/tacint_shark/hecate_vinierspecial/suppressor/SM_TGP_V2_n"
+	"$nocull" 1
+	"$color2" "[2 2 2]"
+}

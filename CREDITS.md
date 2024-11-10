@@ -1,0 +1,4 @@
+- Main model: Toby Burnside, made for Fallout 4: New Vegas
+- Scope: Black Ops Cold War
+- PEQ-2 and "Rangefinder" interface: Infinity Ward, ported to Source by  Dr. Gordon Freeman PhD
+- Suppressor: velterjherson1 on Sketchfab

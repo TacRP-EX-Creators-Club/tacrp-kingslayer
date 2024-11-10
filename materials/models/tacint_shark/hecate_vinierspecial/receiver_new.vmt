@@ -1,0 +1,10 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/tacint_shark/hecate_vinierspecial/receiver_new"
+	"$bumpmap" "models/tacint_shark/hecate_vinierspecial/receiver_nm"
+	"$phong" "1"
+	"$phongexponent" "4"
+	"$phongboost" "1.25"	
+	"$phongfresnelranges"	"[.3 1 1]"
+	"$color2" "[3.1 3 3]"
+}
