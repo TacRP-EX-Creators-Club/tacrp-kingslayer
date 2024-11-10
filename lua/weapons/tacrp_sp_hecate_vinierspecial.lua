@@ -75,7 +75,7 @@ SWEP.Damage_Max = 200 // damage at minimum range
 SWEP.Damage_Min = 150 // damage at maximum range
 SWEP.Range_Min = 2000 // distance for which to maintain maximum damage
 SWEP.Range_Max = 9000 // distance at which we drop to minimum damage
-SWEP.Penetration = 40 // units of metal this weapon can penetrate
+SWEP.Penetration = 48 // units of metal this weapon can penetrate
 SWEP.ArmorPenetration = 1.5
 SWEP.ArmorBonus = 5
 
@@ -83,10 +83,10 @@ SWEP.BodyDamageMultipliers = {
     [HITGROUP_HEAD] = 5, // nobody is surviving this
     [HITGROUP_CHEST] = 1,
     [HITGROUP_STOMACH] = 1,
-    [HITGROUP_LEFTARM] = 0.75,
-    [HITGROUP_RIGHTARM] = 0.75,
-    [HITGROUP_LEFTLEG] = 0.5,
-    [HITGROUP_RIGHTLEG] = 0.5,
+    [HITGROUP_LEFTARM] = 1,
+    [HITGROUP_RIGHTARM] = 1,
+    [HITGROUP_LEFTLEG] = 0.75,
+    [HITGROUP_RIGHTLEG] = 0.75,
     [HITGROUP_GEAR] = 0.5
 }
 
@@ -438,8 +438,8 @@ function SWEP.ScopeDraw(self)
     if self:GetValue("Damage_Min") <= self:GetValue("Damage_Max") then frac = 1 - frac end
 
     local pct = string.format("%03d%%", math.Round(frac * 100))
-    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x + 1, y - TacRP.SS(50) + 1, shadow, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
-    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x, y - TacRP.SS(50), color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x + 1, y - TacRP.SS(49) + 1, shadow, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x, y - TacRP.SS(49), color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 
     if !TacRP.ConVars["physbullet"]:GetBool() then return end
 
