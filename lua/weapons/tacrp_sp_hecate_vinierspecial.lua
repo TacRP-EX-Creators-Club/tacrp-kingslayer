@@ -12,7 +12,7 @@ SWEP.Category = "Tactical RP (Bonus)"
 SWEP.SubCatTier = "0Exotic"
 SWEP.SubCatType = "7Sniper Rifle"
 
-SWEP.Description = "Customized Hécate with a mammoth suppressor, custom 16x scope jury-rigged with a rangefinder and a rebellious message scrawled on the gun's side."
+SWEP.Description = "Customized Hécate II with a mammoth suppressor, custom 16x scope sporting a jury-rigged rangefinder, and a rebellious message carved into the gun's side."
 SWEP.Description_Quote = "\"Pay a man enough and he'll walk barefoot into Hell.\""
 
 SWEP.Trivia_Caliber = ".50 BMG"
@@ -22,9 +22,8 @@ SWEP.Trivia_Year = "1993"
 SWEP.Faction = TacRP.FACTION_MILITIA
 SWEP.Credits = [[
 Custom built by speedonerd for VinierAardvark1
-Hecate: Toby Burnside
-Additional assets: Treyarch, Infinity Ward, valterjherson1
-Sound: Speedonerd
+Hécate II Model: Toby Burnside
+Additional assets: Treyarch, Infinity Ward, valterjherson1, unselles, Speedonerd
 ]]
 
 SWEP.ViewModel = "models/weapons/tacint_shark/v_hecate_vinierspecial.mdl"
