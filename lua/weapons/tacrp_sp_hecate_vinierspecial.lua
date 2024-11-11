@@ -182,7 +182,7 @@ SWEP.HolsterAng = Angle(0, 0, 0)
 // scope
 
 SWEP.Scope = true
-SWEP.ScopeOverlay = Material("tacrp/scopes/bocw_optic_pellington_reticle_kingslayer.png", "mips_smooth") // Material("path/to/overlay")
+SWEP.ScopeOverlay = Material("tacrp/scopes/bocw_optic_pellington_reticle_kingslayer.png", "") // Material("path/to/overlay")
 SWEP.ScopeFOV = 90 / 16
 SWEP.ScopeLevels = 1 // 2 = like CS:S
 SWEP.ScopeHideWeapon = true
