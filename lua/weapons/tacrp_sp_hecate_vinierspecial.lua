@@ -27,7 +27,7 @@ Additional assets: Treyarch, Infinity Ward, valterjherson1, Unselles, speedonerd
 ]]
 
 SWEP.ViewModel = "models/weapons/tacint_shark/v_hecate_vinierspecial.mdl"
-SWEP.WorldModel = "models/weapons/tacint_extras/w_hecate.mdl"
+SWEP.WorldModel = "models/weapons/tacint_shark/w_hecate_vinierspecial.mdl"
 
 SWEP.Slot = 2
 SWEP.SlotAlt = 3
@@ -311,8 +311,8 @@ SWEP.Attachments = {
         InstalledElements = {"tactical"},
         Pos_VM = Vector(-3.9, -1.5, 19.25),
         Ang_VM = Angle(90, 0, 270),
-        Pos_WM = Vector(0, 23.75, -2),
-        Ang_WM = Angle(0, -90, 180),
+        Pos_WM = Vector(1.75, 22.5, -0.05),
+        Ang_WM = Angle(0, -90, -90),
     },
     [4] = {
         PrintName = "Accessory",
