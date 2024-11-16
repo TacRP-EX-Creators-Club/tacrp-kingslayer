@@ -414,10 +414,10 @@ function SWEP.ScopeDraw(self)
     local txt_w, txt_h = surface.GetTextSize(txt)
 
     surface.SetTextColor(0, 0, 0, 200)
-    surface.SetTextPos(x - txt_w / 2 + 4, y - txt_h / 2 - TacRP.SS(67.5) + 2)
+    surface.SetTextPos(x - txt_w / 2 + 4, y - txt_h / 2 - TacRP.SS(61) + 2)
     surface.DrawText(txt)
     surface.SetTextColor(255, 255, 255)
-    surface.SetTextPos(x - txt_w / 2 + 2, y - txt_h / 2 - TacRP.SS(67.5))
+    surface.SetTextPos(x - txt_w / 2 + 2, y - txt_h / 2 - TacRP.SS(61))
     surface.DrawText(txt)
 
     if self:GetNextPrimaryFire() - 0.5 > CurTime() then
@@ -437,8 +437,8 @@ function SWEP.ScopeDraw(self)
     if self:GetValue("Damage_Min") <= self:GetValue("Damage_Max") then frac = 1 - frac end
 
     local pct = string.format("%03d%%", math.Round(frac * 100))
-    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x + 1, y - TacRP.SS(54.5) + 1, shadow, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
-    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x, y - TacRP.SS(54.5), color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x + 1, y - TacRP.SS(49) + 1, shadow, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x, y - TacRP.SS(49), color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 
     if !TacRP.ConVars["physbullet"]:GetBool() then return end
 
