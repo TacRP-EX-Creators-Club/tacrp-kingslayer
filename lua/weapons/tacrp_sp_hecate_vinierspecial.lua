@@ -78,6 +78,11 @@ SWEP.Penetration = 48 // units of metal this weapon can penetrate
 SWEP.ArmorPenetration = 1.5
 SWEP.ArmorBonus = 5
 
+SWEP.ExplosiveEffect = "StunstickImpact"
+SWEP.ExplosiveDamageType = DMG_BULLET
+SWEP.ExplosiveDamage = 30
+SWEP.ExplosiveRadius = 150
+
 SWEP.BodyDamageMultipliers = {
     [HITGROUP_HEAD] = 5, // nobody is surviving this
     [HITGROUP_CHEST] = 1,
