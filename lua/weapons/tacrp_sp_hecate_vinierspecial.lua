@@ -144,7 +144,7 @@ SWEP.FreeAimMaxAngle = 9
 
 SWEP.Bipod = true
 SWEP.BipodRecoil = 1
-SWEP.BipodKick = 0.25
+SWEP.BipodKick = 0.15
 
 // hold types
 
