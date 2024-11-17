@@ -445,8 +445,8 @@ function SWEP.ScopeDraw(self)
     if self:GetValue("Damage_Min") <= self:GetValue("Damage_Max") then frac = 1 - frac end
 
     local pct = string.format("%03d%%", math.Round(frac * 100))
-    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x + 1, y - ss * 0.1175 + 1, shadow, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
-    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x, y - ss * 0.1175, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x + 1, y - ss * 0.11825 + 1, shadow, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    draw.SimpleText(pct, "TacRP_HD44780A00_5x8_4", x, y - ss * 0.11825, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 
     if !TacRP.ConVars["physbullet"]:GetBool() then return end
 
