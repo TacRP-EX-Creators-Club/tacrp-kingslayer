@@ -4,7 +4,7 @@ SWEP.Spawnable = true
 AddCSLuaFile()
 
 // names and stuff
-SWEP.PrintName = "Hécate \"Kingslayer\""
+SWEP.PrintName = "Hécate II \"Kingslayer\""
 SWEP.AbbrevName = "Kingslayer"
 
 SWEP.Category = "Tactical RP (Bonus)"
@@ -13,7 +13,7 @@ SWEP.SubCatTier = "0Exotic"
 SWEP.SubCatType = "7Sniper Rifle"
 
 SWEP.Description = "Customized Hécate II with a mammoth suppressor, custom 16x scope sporting a jury-rigged rangefinder, and a rebellious message scrawled on the gun's side."
-SWEP.Description_Quote = "\"Pay a man enough and he'll walk barefoot into Hell.\""
+SWEP.Description_Quote = "\"Pay a man enough and he'll walk barefoot into Hell.\"" // Evil 90s Will Riker from Gargoyles
 
 SWEP.Trivia_Caliber = ".50 BMG"
 SWEP.Trivia_Manufacturer = "PGM Précision"
@@ -34,9 +34,9 @@ SWEP.SlotAlt = 3
 
 SWEP.BalanceStats = {
     [TacRP.BALANCE_SBOX] = {
-        Damage_Max = 80,
+        Damage_Max = 85,
         Damage_Min = 150,
-        Range_Min = 700,
+        Range_Min = 750,
         Range_Max = 5000,
 
         AimDownSightsTime = 0.74,
@@ -73,7 +73,7 @@ SWEP.BalanceStats = {
 SWEP.Damage_Max = 200 // damage at minimum range
 SWEP.Damage_Min = 150 // damage at maximum range
 SWEP.Range_Min = 2000 // distance for which to maintain maximum damage
-SWEP.Range_Max = 9000 // distance at which we drop to minimum damage
+SWEP.Range_Max = 9500 // distance at which we drop to minimum damage
 SWEP.Penetration = 48 // units of metal this weapon can penetrate
 SWEP.ArmorPenetration = 1.5
 SWEP.ArmorBonus = 5
@@ -85,7 +85,7 @@ SWEP.ExplosiveRadius = 150
 
 SWEP.BodyDamageMultipliers = {
     [HITGROUP_HEAD] = 5, // nobody is surviving this
-    [HITGROUP_CHEST] = 1,
+    [HITGROUP_CHEST] = 1.15,
     [HITGROUP_STOMACH] = 1,
     [HITGROUP_LEFTARM] = 1,
     [HITGROUP_RIGHTARM] = 1,
@@ -119,7 +119,7 @@ SWEP.RecoilFirstShotMult = 1
 SWEP.RecoilCrouchMult = 1
 
 SWEP.RecoilVisualKick = 5
-SWEP.RecoilKick = 10
+SWEP.RecoilKick = 8.75
 SWEP.RecoilStability = 0.75
 
 SWEP.RecoilSpreadPenalty = 0.05
@@ -134,17 +134,17 @@ SWEP.SightedSpeedMult = 0.5
 
 SWEP.ReloadSpeedMult = 0.3
 
-SWEP.AimDownSightsTime = 0.7
-SWEP.SprintToFireTime = 0.7
+SWEP.AimDownSightsTime = 0.85
+SWEP.SprintToFireTime = 0.75
 
-SWEP.Sway = 2
-SWEP.ScopedSway = 0.15
+SWEP.Sway = 3
+SWEP.ScopedSway = 0.1
 
-SWEP.FreeAimMaxAngle = 9
+SWEP.FreeAimMaxAngle = 9.5
 
 SWEP.Bipod = true
 SWEP.BipodRecoil = 1
-SWEP.BipodKick = 0.15
+SWEP.BipodKick = 0.1
 
 // hold types
 
