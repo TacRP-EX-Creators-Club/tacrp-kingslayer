@@ -4,8 +4,8 @@ SWEP.Spawnable = true
 AddCSLuaFile()
 
 // names and stuff
-SWEP.PrintName = "Hécate II \"Kingslayer\""
-SWEP.AbbrevName = "Kingslayer"
+SWEP.PrintName = "Hécate II \"Kingbreaker\""
+SWEP.AbbrevName = "Kingbreaker"
 
 SWEP.Category = "Tactical RP (Bonus)"
 
@@ -13,7 +13,7 @@ SWEP.SubCatTier = "0Exotic"
 SWEP.SubCatType = "7Sniper Rifle"
 
 SWEP.Description = "Customized Hécate II with a mammoth suppressor, custom 16x scope sporting a jury-rigged rangefinder, and a rebellious message scrawled on the gun's side."
-SWEP.Description_Quote = "\"Pay a man enough and he'll walk barefoot into Hell.\"" // Evil 90s Will Riker from Gargoyles
+SWEP.Description_Quote = "\"No more chivalry. Now we fight like wolves.\"" // Outlaw King
 
 SWEP.Trivia_Caliber = ".50 BMG"
 SWEP.Trivia_Manufacturer = "PGM Précision"
@@ -187,7 +187,7 @@ SWEP.HolsterAng = Angle(0, 0, 0)
 // scope
 
 SWEP.Scope = true
-SWEP.ScopeOverlay = Material("tacrp/scopes/bocw_optic_pellington_reticle_kingslayer.png", "") // Material("path/to/overlay")
+SWEP.ScopeOverlay = Material("tacrp/scopes/bocw_optic_pellington_reticle_kingbreaker.png", "") // Material("path/to/overlay")
 SWEP.ScopeFOV = 90 / 16
 SWEP.ScopeLevels = 1 // 2 = like CS:S
 SWEP.ScopeHideWeapon = true
