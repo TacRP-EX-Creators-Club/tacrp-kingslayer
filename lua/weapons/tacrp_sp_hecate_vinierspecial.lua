@@ -5,7 +5,7 @@ AddCSLuaFile()
 
 // names and stuff
 SWEP.PrintName = "Hécate II \"Kingbreaker\""
-SWEP.AbbrevName = "Kingbreaker"
+SWEP.AbbrevName = "The Kingbreaker"
 
 SWEP.Category = "Tactical RP (Bonus)"
 
