@@ -195,7 +195,7 @@ SWEP.ScopeOverlaySize = 1.15
 
 // reload
 
-SWEP.ClipSize = 7
+SWEP.ClipSize = 8
 SWEP.Ammo = "357"
 SWEP.AmmoTTT = "ti_sniper"
 SWEP.Ammo_Expanded = "ti_sniper"
