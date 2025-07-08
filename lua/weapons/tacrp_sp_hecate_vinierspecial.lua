@@ -209,8 +209,10 @@ SWEP.DropMagazineTime = 0.8
 
 // sounds
 
-SWEP.Sound_Shoot = "^tacrp_extras/hecate/ax308_fire_1.wav"
-SWEP.Sound_Shoot_Silenced = "tacint_shark/hecate_vinierspecial/hecate_vinierspecial-1.wav"
+local path = "tacint_shark/hecate_vinierspecial/hecate_vinierspecial_"
+
+SWEP.Sound_Shoot = "^tacrp_extras/hecate/ax308_fire_1.wav" -- this shouldn't be happening anyway    lol
+SWEP.Sound_Shoot_Silenced = "tacint_shark/hecate_vinierspecial/hecate_vinierspecial_fire.wav"
 
 SWEP.Vol_Shoot = 130
 SWEP.ShootPitchVariance = 1 // amount to vary pitch by each shot
@@ -476,6 +478,21 @@ end
 
 ATT.TacticalCrosshairTruePos = true
 
+local function addsound(name, spath)
+    sound.Add({
+        name = name,
+        channel = 16,
+        volume = 1.0,
+        sound = spath
+    })
+end
+
+addsound("hecate_vinierspecial.Clip_Out", path .. "magout.wav")
+addsound("hecate_vinierspecial.Clip_In", path .. "magin.wav")
+addsound("hecate_vinierspecial.Bolt_Back", path .. "boltback.wav")
+addsound("hecate_vinierspecial.Bolt_Forward", path .. "boltforward.wav")
+addsound("hecate_vinierspecial.Bolt_Up", path .. "boltup.wav")
+addsound("hecate_vinierspecial.bolt_Down", path .. "boltdown.wav")
 
 if engine.ActiveGamemode() == "terrortown" then
     SWEP.AutoSpawnable = false
