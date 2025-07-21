@@ -1,17 +1,17 @@
 "VertexLitGeneric"
 {
-	"$basetexture"					"models\tacint_shark\hecate_vinierspecial\rangefinder\eotech_pwr_reader"
+	"$basetexture"				"models\tacint_shark\hecate_vinierspecial\rangefinder\eotech_pwr_reader"
 	"$bumpmap"					"models\tacint_shark\hecate_vinierspecial\rangefinder\eotech_pwr_reader_n"
 
-	"$phong"	"1"
-	"$phongexponent"	"4"
-	"$phongalbedotint"	"1"
-	"$phongboost"	"0.4"
-	"$phongfresnelranges"	"[1 1 1]"
-        "$phongdisablehalflambert"  "1"
+	"$phong"					"1"
+	"$phongexponent"			"4"
+	"$phongalbedotint"			"1"
+	"$phongboost"				"0.4"
+	"$phongfresnelranges"		"[1 1 1]"
+	"$phongdisablehalflambert"	"1"
 
-        "$halflambert"                 "0"
-        "$nodecal"                     "0"
-        "$ambientocclusion"         "1"
-	"$color2" "[4 4 4]"
+	"$halflambert"				"0"
+	"$nodecal"					"0"
+	"$ambientocclusion"			"1"
+	"$color2"					"[4 4 4]"
 }

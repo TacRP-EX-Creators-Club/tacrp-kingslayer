@@ -1,31 +1,26 @@
 "VertexlitGeneric"
 {
-	"$basetexture""models/tacint_shark/hecate_vinierspecial/pellington/lens_c"
+	"$basetexture"				"models/tacint_shark/hecate_vinierspecial/pellington/lens_c"
+	"$bumpmap"					"models/tacint_shark/hecate_vinierspecial/pellington/lens_n"
 
+	"$phong"					"1"
+	"$phongboost"				"0.2"
+	"$phongexponent"			"30"
+	"$phongalbedotint"			"1"
+	"$normalmapalphaenvmapmask"	"1"
 
-"$bumpmap"	"models/tacint_shark/hecate_vinierspecial/pellington/lens_n"
+	"$detail"					"models/tacint_shark/hecate_vinierspecial/pellington/$detail"
 
+	"$detailscale"				"1"
+	"$detailblendfactor"		"0.05"
+	"$detailblendmode"			"0.5"
 
-	"$phong" "1"
-	"$phongboost" "0.2"
-	"$phongexponent" "30"
-	"$phongalbedotint" "1"
-	"$normalmapalphaenvmapmask" "1"
+	"$cloakPassEnabled"			"1"
+	"$phongfresnelranges"		"[ .2 1.2 8]"
 
-	"$detail" 	"models/tacint_shark/hecate_vinierspecial/pellington/$detail"
-
-	"$detailscale" "1"        
-	"$detailblendfactor" "0.05"     
-	"$detailblendmode" "1"
-
-	"$cloakPassEnabled" 		"1"						
-	"$phongfresnelranges"	"[ .2 1.2 8]"	
-
-	$envmap 	env_cubemap
-	$envmaptint   "[0.05 0.05 0.05]"
-	$envmapfresnel "0"
+	$envmap						"env_cubemap"
+	$envmaptint					"[0.05 0.05 0.05]"
+	$envmapfresnel				"0"
 
 	"$nocull" "1"
-
-
 }
