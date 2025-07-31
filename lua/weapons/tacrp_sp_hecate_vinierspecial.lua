@@ -478,6 +478,28 @@ end
 
 ATT.TacticalCrosshairTruePos = true
 
+SWEP.CanToggle = true
+SWEP.CustomTacticalHint = "Toggle Zoom"
+
+local lvlmult = {
+    [1] = 8,
+    [2] = 4,
+}
+
+SWEP.Hook_ModifyMagnification = function(wep, data)
+    if !wep.Attachments[1].Installed and !wep.Attachments[3].Installed and wep:GetNWInt("TacRP_ZoomLevel", 0) > 0 then
+        return lvlmult[wep:GetNWInt("TacRP_ZoomLevel", 0)]
+    end
+end
+
+SWEP.Hook_ToggleTactical = function(wep)
+    if !wep.Attachments[1].Installed and !wep.Attachments[3].Installed and IsFirstTimePredicted() then
+        wep:SetNWInt("TacRP_ZoomLevel", (wep:GetNWInt("TacRP_ZoomLevel", 0) + 1) % (#lvlmult + 1))
+        wep:EmitSound("tacrp/firemode.wav", 60, 85 + (wep:GetNWInt("TacRP_ZoomLevel", 0) / #lvlmult) * 25, 0.4, CHAN_ITEM)
+        return true
+    end
+end
+
 local function addsound(name, spath)
     sound.Add({
         name = name,
