@@ -85,7 +85,7 @@ SWEP.ExplosiveRadius = 150
 
 SWEP.BodyDamageMultipliers = {
     [HITGROUP_HEAD] = 5, // nobody is surviving this
-    [HITGROUP_CHEST] = 1.15,
+    [HITGROUP_CHEST] = 1.25,
     [HITGROUP_STOMACH] = 1,
     [HITGROUP_LEFTARM] = 1,
     [HITGROUP_RIGHTARM] = 1,
@@ -495,7 +495,7 @@ end
 SWEP.Hook_ToggleTactical = function(wep)
     if !wep.Attachments[1].Installed and !wep.Attachments[3].Installed and IsFirstTimePredicted() then
         wep:SetNWInt("TacRP_ZoomLevel", (wep:GetNWInt("TacRP_ZoomLevel", 0) + 1) % (#lvlmult + 1))
-        wep:EmitSound("tacrp/firemode.wav", 60, 85 + (wep:GetNWInt("TacRP_ZoomLevel", 0) / #lvlmult) * 25, 0.4, CHAN_ITEM)
+        wep:EmitSound("tacint_shark/hecate_vinierspecial/hecate_vinierspecial_optic_zoom.wav", 60, 85 + (wep:GetNWInt("TacRP_ZoomLevel", 0) / #lvlmult) * 25, 0.4, CHAN_ITEM)
         return true
     end
 end
